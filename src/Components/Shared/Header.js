@@ -4,8 +4,10 @@ import logo from "../../images/logo/logo.png";
 
 const Header = () => {
   return (
-    <div>
-      <div class="navbar bg-base-100">
+    <div 
+    
+    className="px-5    lg:px-32 ">
+      <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -106,6 +108,12 @@ const Header = () => {
           </ul>
         </div>
         <div class="navbar-end">
+          <Link
+            className="pr-2 font-bold hover:border-b-4 hover:border-primary"
+            to="/"
+          >
+            Dashboard
+          </Link>
           <a class="btn btn-outline btn-primary rounded-full ">Log In</a>
         </div>
       </div>
