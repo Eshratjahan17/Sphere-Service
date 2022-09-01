@@ -4,6 +4,7 @@ import './App.css';
 import Blogs from "./Components/Blogs";
 import Home from './Components/Home';
 import Portfolio from "./Components/Portfolio";
+import Footer from "./Components/Shared/Footer";
 import Header from './Components/Shared/Header';
 import NotFound from './Components/Shared/NotFound';
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
