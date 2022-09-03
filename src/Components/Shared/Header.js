@@ -114,7 +114,7 @@ const Header = () => {
           >
             Dashboard
           </Link>
-          <a class="btn btn-outline btn-primary rounded-full ">Log In</a>
+          <a href='/login' class="btn btn-outline btn-primary rounded-full ">Log In</a>
         </div>
       </div>
     </div>

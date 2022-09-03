@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="banner-bg px-32 text-white  py-9">
       <div>
         <h1 className=" text-7xl ">
-          Heigh Performance <br /> Services For Industries
+          High Performance <br /> Services For Industries
         </h1>
         <div>
           <p className="py-6 google-font ">
