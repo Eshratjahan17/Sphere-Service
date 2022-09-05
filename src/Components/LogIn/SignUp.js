@@ -45,9 +45,9 @@ const SignUp = () => {
   };
   return (
     <div className="py-8 bg-login">
-      <div class="hero min-h-screen ">
-        <div class="hero-content flex-col lg:flex-row-reverse  shadow-2xl  py-0 px-0 w-3/6 bg-gradient-to-r from-secondary to-primary justify-between ">
-          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-primary to-secondary   rounded-lg">
+      <div class="hero min-h-screen  ">
+        <div class="hero-content flex-col lg:flex-row-reverse  shadow-2xl  py-0 px-0 w-3/6 bg-gradient-to-r from-secondary to-primary  justify-between  rounded-lg">
+          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-secondary to-primary  rounded-lg">
             <div class="card-body ">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="form-control  mx-auto">
