@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../firebase.init';
 import Loader from './Shared/Loader';
 
 const Purchase = () => {
    let { id } = useParams();
+    const [user, loading, error] = useAuthState(auth);
     const [thumbIndex, setThumbIndex] = useState(0);
 const [productDetails,setProductDetails]=useState([]);
 const [isLoading,setIsLoading]=useState(false);
@@ -53,6 +56,16 @@ const [shippingDetails, setshippingDetails] = useState([]);
     };
   return (
     <div className="bg-base-200">
+      <div className="">
+        <div class="avatar placeholder ml-32  mt-8">
+          <div class="bg-primary text-neutral-content rounded-full w-24 ">
+            <span class="text-xl text-center text-white">
+              {user?.displayName}
+            </span>
+          </div>
+        </div>
+        <p className="ml-32"> {user.email}</p>
+      </div>
       <div class="hero min-h-screen ">
         <div class="hero-content flex-col lg:flex-row">
           <div className="flex flex-col">
