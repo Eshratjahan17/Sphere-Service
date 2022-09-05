@@ -1,0 +1,122 @@
+[
+  {
+    "price": "$1,262.93",
+    "picture": "https://i.ibb.co/tJYW8RS/motherborad.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 10,
+    "stock": 236,
+    "name": "Motherboard",
+    "brand": "ASRock",
+    "madeIn": "Uk",
+    "about": "The motherboard is the main board that is screwed directly inside the computer case.\r\n"
+  },
+  {
+    "price": "$3,049.12",
+    "picture": "https://i.ibb.co/v4ggV5r/cpu.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 21,
+    "stock": 346,
+    "name": "Central processing unit",
+    "brand": "Asus",
+    "madeIn": "USA",
+    "about": "The CPU or central processing unit is basically like the brain of computer systems. It processes all the information on a computational level.\r\n"
+  },
+  {
+    "price": "$3,651.97",
+    "picture": "https://i.ibb.co/8DhH4d4/graphics.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 25,
+    "stock": 264,
+    "name": "Graphics processing unit",
+    "brand": "ASRock",
+    "madeIn": "Uk",
+    "about": "A graphics card is an output device that processes the data from the motherboard and sends the appropriate information to the computer’s screen for display.\r\n"
+  },
+  {
+    "price": "$2,380.49",
+    "picture": "https://i.ibb.co/nrsGZ5y/ram.jpg",
+    "thumbs": [
+      "https://i.ibb.co/KNv13LG/thumb3.jpg",
+      "https://i.ibb.co/s6WgpnD/thumb1.jpg",
+      "https://i.ibb.co/nP7sxhr/thumb2.jpg"
+    ],
+    "minimum": 14,
+    "stock": 364,
+    "name": "Random access memory",
+    "brand": "Intel",
+    "madeIn": "USA",
+    "about": "RAM or random access memory is a data storage device that can provide fast read and write access. RAM is volatile memory, meaning it loses all the stored data when power is lost.\r\n"
+  },
+  {
+    "price": "$3,128.75",
+    "picture": "https://i.ibb.co/nfRCRmD/harddisk.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 12,
+    "stock": 351,
+    "name": "Hard disk",
+    "brand": "ASUS",
+    "madeIn": "Uk",
+    "about": "A hard drive is still found in most computers to this day. It’s usually a mechanical drive that stores all the data.\r\n"
+  },
+  {
+    "price": "$2,482.59",
+    "picture": "https://i.ibb.co/VwRmNh1/soundcard.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 14,
+    "stock": 367,
+    "name": "Sound Card",
+    "brand": "ASRock",
+    "madeIn": "Uk",
+    "about": "Most of the time, the sound chip built into the motherboard is used for audio output.\r\n"
+  },
+  {
+    "price": "$2,482.59",
+    "picture": "https://i.ibb.co/7SzLdqn/ssd.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 14,
+    "stock": 367,
+    "name": "Solid State Drive",
+    "brand": "Intel",
+    "madeIn": "USA",
+    "about": "An SSD is also a type of hard drive, but it doesn’t have any moving parts. It consists of a bank of flash memory that can hold a reasonable amount of data.\r\n"
+  },
+  {
+    "price": "$2,482.59",
+    "picture": "https://i.ibb.co/VQVYZys/power.jpg",
+    "thumbs": [
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32",
+      "http://placehold.it/32x32"
+    ],
+    "minimum": 14,
+    "stock": 367,
+    "name": "Power Supply Unit",
+    "brand": "Asus",
+    "madeIn": "USA",
+    "about": "This converts the AC mains supply from the power cord from a wall socket and supplies the correct DC voltages to all the components inside the computer.\r\n"
+  }
+]

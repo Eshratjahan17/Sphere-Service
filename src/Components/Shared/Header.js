@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="px-5    lg:px-32 ">
+    <div className="px-5    lg:px-32  ">
       <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
