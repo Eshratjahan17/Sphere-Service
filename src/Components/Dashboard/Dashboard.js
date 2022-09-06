@@ -6,43 +6,39 @@ const Dashboard = () => {
     <div>
       <div class="drawer drawer-mobile">
         <input id="dashboard-drawer" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content ">
+        <div class="drawer-content p-24 bg-base-200 ">
           <Outlet></Outlet>
           {/* <!-- Page content here --> */}
         </div>
         <div class="drawer-side">
           <label for="dashboard-drawer" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
+          <ul class="menu p-3 overflow-y-auto w-52 bg-accent  text-white ">
             {/* <!-- Sidebar content here --> */}
-            <li>
+            <li className="hover:bg-primary">
               <Link to="/dashboard">My Profile</Link>
             </li>
-           
-              <>
-                <li>
-                  <Link to="/dashboard/myorders">My Orders</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/addReview">Add A Review</Link>
-                </li>
-              </>
-           
 
-         
-                <li>
-                  <Link to="/dashboard/manageUsers">Manage Users</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/addProduct">Add Product</Link>
-                </li>
-                <li>
-                  <Link
-                   to="/dashboard/manageOrders">Manage All Orders</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/manageProduct">Manage Product</Link>
-                </li>
-             
+            <>
+              <li className="hover:bg-primary">
+                <Link to="/dashboard/myorders">My Orders</Link>
+              </li>
+              <li className="hover:bg-primary">
+                <Link to="/dashboard/addReview">Add A Review</Link>
+              </li>
+            </>
+
+            <li className="hover:bg-primary">
+              <Link to="/dashboard/manageUsers">Manage Users</Link>
+            </li>
+            <li className="hover:bg-primary">
+              <Link to="/dashboard/addProduct">Add Product</Link>
+            </li>
+            <li className="hover:bg-primary">
+              <Link to="/dashboard/manageOrders">Manage All Orders</Link>
+            </li>
+            <li className="hover:bg-primary">
+              <Link to="/dashboard/manageProduct">Manage Product</Link>
+            </li>
           </ul>
         </div>
       </div>
