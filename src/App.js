@@ -4,6 +4,7 @@ import './App.css';
 import Blogs from "./Components/Blogs";
 import AddProducts from "./Components/Dashboard/AddProducts";
 import AddReview from "./Components/Dashboard/AddReview";
+import Charts from "./Components/Dashboard/Charts";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ManageOrders from "./Components/Dashboard/ManageOrders";
 import ManageProducts from "./Components/Dashboard/ManageProducts";
@@ -42,7 +43,8 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route index element={<Charts></Charts>}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
           <Route
             path="addProduct"

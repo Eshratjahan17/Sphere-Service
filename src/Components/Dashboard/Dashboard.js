@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div>
       <div class="drawer drawer-mobile">
         <input id="dashboard-drawer" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content lg:p-24 bg-base-200 ">
+        <div class="drawer-content  bg-base-200 ">
           <Outlet></Outlet>
           {/* <!-- Page content here --> */}
         </div>
@@ -15,7 +15,10 @@ const Dashboard = () => {
           <ul class="menu p-3 overflow-y-auto w-52 bg-accent  text-white ">
             {/* <!-- Sidebar content here --> */}
             <li className="hover:bg-primary">
-              <Link to="/dashboard">My Profile</Link>
+              <Link to="/dashboard">DashBoard</Link>
+            </li>
+            <li className="hover:bg-primary">
+              <Link to="/dashboard/myprofile">My Profile</Link>
             </li>
 
             <>

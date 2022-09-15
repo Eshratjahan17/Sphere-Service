@@ -2,7 +2,7 @@ import React from 'react';
 
 const ManageUsers = () => {
   return (
-    <div>
+    <div className="lg:m-24">
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* <!-- head --> */}

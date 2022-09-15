@@ -37,7 +37,10 @@ const MyProfile = () => {
     //    });
    };
   return (
-    <div className="bg-white p-10 lg:flex items-center   ">
+    <div className="bg-white lg:m-24 p-10 lg:flex items-center  
+    shadow-lg
+    
+    ">
       <div className=" ">
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">

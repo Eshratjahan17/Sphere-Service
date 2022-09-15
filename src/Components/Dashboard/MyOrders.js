@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyOrders = () => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto lg:m-24">
       <table className="table w-full">
         {/* <!-- head --> */}
         <thead>
@@ -51,7 +51,6 @@ const MyOrders = () => {
               </svg>
             </td>
           </tr>
-      
         </tbody>
       </table>
     </div>

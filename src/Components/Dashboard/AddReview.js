@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddReview = () => {
   return (
-    <div className="bg-white p-10 lg:flex items-center justify-center">
+    <div className="lg:bg-white lg:m-24 p-9 lg:flex items-center justify-center">
       <div>
         <div className="rating rating-lg">
           <input
@@ -34,15 +34,13 @@ const AddReview = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="text-2xl font-bold ">
-              Write a Review
-            </span>
+            <span className="text-2xl font-bold ">Write a Review</span>
           </label>
           <textarea
             className="textarea textarea-bordered h-24 w-96"
             placeholder="write here"
           ></textarea>
-          <button className='btn btn-primary mt-6 text-white'>Post</button>
+          <button className="btn btn-primary mt-6 text-white">Post</button>
         </div>
       </div>
     </div>

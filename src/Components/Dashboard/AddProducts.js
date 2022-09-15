@@ -53,8 +53,8 @@ const AddProducts = () => {
       });
   };
   return (
-    <div>
-      <div className="overflow-x-hidden ">
+    <div className="lg:p-24">
+      <div className="overflow-x-hidden  ">
         <h1 className="text-center text-3xl text-primary font-bold   ">
           Add a Product
         </h1>
