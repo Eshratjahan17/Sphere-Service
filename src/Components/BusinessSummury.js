@@ -10,13 +10,13 @@ const BusinessSummury = () => {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <div className="bg-primary text-white">
+      <div className="bg-accent text-white">
         <div className="grid items-center px-5  pt-5 pb-20">
           <h3 className="text-center text-3xl font-bold my-9 mb-3">
             We Served
           </h3>
           <div class="divider w-1/4 mx-auto "></div>
-          <div class="stats stats-vertical lg:stats-horizontal  bg-primary text-white shadow-2xl ">
+          <div class="stats stats-vertical lg:stats-horizontal  bg-accent text-white shadow-2xl ">
             <div class="stat  text-center">
               <div>
                 <UserGroupIcon className="h-12 w-12 ml-28" />

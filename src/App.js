@@ -21,6 +21,7 @@ import Footer from "./Components/Shared/Footer";
 import Header from './Components/Shared/Header';
 import NotFound from './Components/Shared/NotFound';
 
+
 function App() {
   return (
     <div>
@@ -72,6 +73,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+     
       <Footer></Footer>
     </div>
   );

@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  Area,
-  AreaChart,
-  Bar, BarChart, CartesianGrid, Cell, ComposedChart, Legend, Line, Pie, PieChart, Scatter, Tooltip, XAxis,
+  Area, AreaChart, CartesianGrid, Cell, Pie, PieChart, Tooltip, XAxis,
   YAxis
 } from "recharts";
 
@@ -28,24 +26,6 @@ const BarrChart = () => {
      },
      {
        name: "Page D",
-       uv: 2780,
-       pv: 3908,
-       amt: 2000,
-     },
-     {
-       name: "Page E",
-       uv: 1890,
-       pv: 4800,
-       amt: 2181,
-     },
-     {
-       name: "Page F",
-       uv: 2580,
-       pv: 3708,
-       amt: 2000,
-     },
-     {
-       name: "Page G",
        uv: 2780,
        pv: 3908,
        amt: 2000,
@@ -88,56 +68,12 @@ const BarrChart = () => {
 
 
   return (
-    <div className=" px-5 mb-9  ">
-      <div className="bg-accent p-8 rounded-2xl text-white grid lg:grid-cols-1">
-        <ComposedChart
-          width={700}
-          height={400}
-          data={bardata}
-          margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20,
-          }}
-        >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="name" scale="band" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-          <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-          <Scatter dataKey="cnt" fill="red" />
-        </ComposedChart>
-      </div>
-      <div>
-        <div className="bar-chart bg-accent p-8 rounded-2xl text-white grid lg:grid-cols-2 sm:grid-cols-1 gap-3">
-          <BarChart
-            width={450}
-            height={400}
-            data={bardata}
-            margin={{
-              top: 5,
-              right: 30,
-
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3  " />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="pv" fill="#8884d8" />
-            <Bar dataKey="uv" fill="#82ca9d" />
-          </BarChart>
-        </div>
-        <div className="bg-accent p-8 rounded-2xl">
+    <div className=" lg:px-5 mb-20  ">
+      <div className="   text-white grid lg:grid-cols-2 gap-3">
+        <div className=" bg-white rounded-2xl drop-shadow-lg p-5">
           <AreaChart
             width={500}
-            height={400}
+            height={350}
             data={bardata}
             margin={{
               top: 10,
@@ -158,7 +94,7 @@ const BarrChart = () => {
             />
           </AreaChart>
         </div>
-        <div className="bg-accent rounded-2xl pl-7 ">
+        <div className="w-3/4 bg-white rounded-2xl drop-shadow-lg p-5">
           <PieChart width={400} height={400}>
             <Pie
               data={data}
@@ -166,7 +102,7 @@ const BarrChart = () => {
               cy="50%"
               labelLine={false}
               label={renderCustomizedLabel}
-              outerRadius={180}
+              outerRadius={150}
               fill="#8884d8"
               dataKey="value"
             >
