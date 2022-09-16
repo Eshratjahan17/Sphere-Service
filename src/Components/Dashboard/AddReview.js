@@ -25,6 +25,7 @@ console.log(ratings);
                   ratingValue={ratingValue}
                   ratings={ratings}
                   setRatings={setRatings}
+                
                  
                 ></Star>
               );
