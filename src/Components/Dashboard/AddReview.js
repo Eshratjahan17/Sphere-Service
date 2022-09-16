@@ -1,11 +1,49 @@
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loader from '../Shared/Loader';
 import Star from '../Star';
 
 
 
 const AddReview = () => {
   const [ratings,setRatings]=useState(null);
+  const [massage,setMassage]=useState("");
+   const [user, loading, error] = useAuthState(auth);
+   if (loading) {
+     return <Loader></Loader>;
+   }
+const handleSubmit = () => {
+   const name = user.displayName;
+;
+   const email = user.email;
+   
+   const rating = ratings;
+   const picture = user.photoURL;
+   const review = massage;
+   const userReview = { name, email, review, rating, picture };
+
+  console.log(userReview);
+   fetch("http://localhost:5000/addreview", {
+     method: "POST",
+     body: JSON.stringify(userReview),
+     headers: {
+       "content-type": "application/json",
+     },
+   })
+     .then((res) => res.json())
+     .then((data) => {
+       console.log(data);
+       window.alert("Review added");
+     });
+};
+const handleMassage=(e)=>{
+ setMassage(e.target.value);
+ console.log(massage);
+
+}
  
+console.log(user);
 console.log(ratings);
   
 
@@ -39,10 +77,15 @@ console.log(ratings);
             <span className="text-2xl font-bold ">Write a Review</span>
           </label>
           <textarea
+          onBlur={handleMassage}
             className="textarea textarea-bordered h-24 w-96"
             placeholder="write here"
           ></textarea>
-          <button className="btn btn-primary mt-6 text-white">Post</button>
+          <input 
+          onClick={handleSubmit}
+          type="submit"
+          value="Post Review"
+          className="btn btn-primary mt-6 text-white"/>
         </div>
       </div>
     </div>
