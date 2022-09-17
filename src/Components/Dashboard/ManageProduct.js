@@ -1,7 +1,13 @@
 import React from 'react';
 import DeleteModal from './DeleteModal';
 
-const ManageProduct = ({ product, setDeleteModal, deleteModal }) => {
+const ManageProduct = ({
+  product,
+  setDeleteModal,
+  deleteModal,
+  handleDelete,
+  isLoading,
+}) => {
   const { name, picture, stock, price } = product;
 
   return (
@@ -24,7 +30,6 @@ const ManageProduct = ({ product, setDeleteModal, deleteModal }) => {
           </div>
           <div className="card-actions justify-end ">
             <label
-              onClick={() => setDeleteModal(product)}
               htmlFor="my-modal-4"
               className="btn modal-button bg-primary rounded-lg p-2 text-white w-30"
             >
@@ -46,6 +51,10 @@ const ManageProduct = ({ product, setDeleteModal, deleteModal }) => {
 
             <label
               htmlFor="my-modal-4"
+              onClick={() => {
+                setDeleteModal(product);
+                console.log(deleteModal);
+              }}
               className="btn modal-button bg-primary rounded-lg p-2 text-white w-30"
             >
               <svg
@@ -66,9 +75,13 @@ const ManageProduct = ({ product, setDeleteModal, deleteModal }) => {
           </div>
         </div>
       </div>
-      {
-        deleteModal && <DeleteModal></DeleteModal>
-      }
+      {deleteModal && (
+        <DeleteModal
+          setDeleteModal={setDeleteModal}
+          deleteModal={deleteModal}
+          isLoading={isLoading}
+        ></DeleteModal>
+      )}
     </div>
   );
 };

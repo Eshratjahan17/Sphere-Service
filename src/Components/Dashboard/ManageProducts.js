@@ -4,16 +4,15 @@ import ManageProduct from './ManageProduct';
 const ManageProducts = () => {
   const [products,setProducts]=useState([]);
   const [deleteModal, setDeleteModal] = useState(null);
+  const [isLoading,setIsLoading]=useState(false);
   useEffect(() => {
-fetch("http://localhost:5000/products")
-  .then((res) => res.json())
-  .then((data) => {
-    setProducts(data);
-    console.log(products);
-  });
-
-
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
   }, [products]);
+  
 
   return (
     <div className="lg:m-24">
@@ -24,6 +23,8 @@ fetch("http://localhost:5000/products")
             product={product}
             deleteModal={deleteModal}
             setDeleteModal={setDeleteModal}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
           ></ManageProduct>
         ))}
       </div>
