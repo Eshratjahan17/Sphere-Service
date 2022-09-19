@@ -12,7 +12,11 @@ fetch("http://localhost:5000/user", {
   },
 })
   .then((res) => res.json())
-  .then((data) => setUsers(data));
+  .then((data) =>{
+setUsers(data);
+console.log(users);
+
+  } );
 
   },[users])
 

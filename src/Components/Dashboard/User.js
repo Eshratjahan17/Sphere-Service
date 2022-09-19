@@ -1,7 +1,8 @@
 import React from 'react';
 
 const User = ({ user }) => {
-  const {email}=user;
+  const {email,role}=user;
+  console.log(user);
  const makeAdmin = () => {
    fetch(`http://localhost:5000/user/admin/${email}`, {
      method: "PUT",
@@ -10,14 +11,11 @@ const User = ({ user }) => {
      },
    })
      .then((res) => {
-       if (res.status === 403) {
-         window.error("You can not make admin");
-       }
        return res.json();
      })
      .then((data) => {
        if (data.modifiedCount > 0) {
-         window.success("Make Admin successful");
+      console.log(data);
        }
      });
  };
@@ -27,23 +25,40 @@ const User = ({ user }) => {
         <td className="">
           <div className="flex items-center space-x-5">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
-                <img
-                  src="/tailwind-css-component-profile-2@56w.png"
-                  alt="Avatar Tailwind CSS Component"
-                />
+              <div className="">
+                <div class=" rounded-full bg-primary p-3">
+                  <div class="text-white ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
             <div>
               <div className="font-bold">{user?.email}</div>
-              <div className="text-sm opacity-50">United States</div>
             </div>
           </div>
         </td>
         <td className="">
-          <button onClick={makeAdmin} className="btn btn-primary btn-sm ">
-            Make Admin
-          </button>
+          {role !== "admin" ? (
+            <button onClick={makeAdmin} className="btn btn-primary  btn-sm text-white">
+              Make Admin
+            </button>
+          ) : (
+            <button onClick={makeAdmin} className="btn btn-slate-100 btn-sm text-white">
+              Make Admin
+            </button>
+          )}
         </td>
       </tr>
     </div>
