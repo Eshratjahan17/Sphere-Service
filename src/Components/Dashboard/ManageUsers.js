@@ -30,12 +30,12 @@ console.log(users);
           {/* <!-- head --> */}
           <thead >
             <tr>
-              <th className="bg-primary text-xl  text-white">Email</th>
+              <th className="bg-primary text-xl  text-white">Users</th>
 
-              <th className="bg-primary text-xl text-white ">Role</th>
+             
             </tr>
           </thead>
-          <tbody >
+          <tbody  className='w-full'>
             {users?.map((user, index) => (
               <User index={index} user={user}></User>
             ))}
