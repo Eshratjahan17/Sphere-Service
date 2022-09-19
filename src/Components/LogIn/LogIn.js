@@ -10,6 +10,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import github from "../../images/icons/github.png";
 import google from "../../images/icons/google.png";
+import useToken from "../Hooks/useToken";
 import './Login.css';
 
 const LogIn = () => {
@@ -31,10 +32,12 @@ const LogIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
+
+  const [token] = useToken(user || googleUser || githubUser);
   if (loading || googleLoading || githubLoading) {
   }
-  if (user || googleUser || githubUser) {
-    console.log(user);
+  if (token) {
+    console.log(user || googleUser || githubUser);
     navigate(from, { replace: true });
   }
 

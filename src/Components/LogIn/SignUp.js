@@ -9,6 +9,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import github from "../../images/icons/github.png";
 import google from "../../images/icons/google.png";
+import useToken from "../Hooks/useToken";
+import Loader from "../Shared/Loader";
 import "./Login.css";
 
 const SignUp = () => {
@@ -30,9 +32,13 @@ const SignUp = () => {
   //   useSignInWithFacebook(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
-  if (user || googleUser || githubUser) {
+    const [token] = useToken(user || googleUser || githubUser);
+  if (token) {
     console.log(user);
     navigate(from, { replace: true });
+  }
+  if(loading|| googleLoading || githubLoading){
+    return <Loader></Loader>
   }
 
   const onSubmit = (data) => {

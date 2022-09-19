@@ -1,4 +1,5 @@
 
+import { QueryClient } from "react-query";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Blogs from "./Components/Blogs";
@@ -21,7 +22,7 @@ import Footer from "./Components/Shared/Footer";
 import Header from './Components/Shared/Header';
 import NotFound from './Components/Shared/NotFound';
 
-
+ 
 function App() {
   return (
     <div>
