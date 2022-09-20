@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loader from '../Shared/Loader';
 import Star from '../Star';
@@ -10,6 +11,7 @@ const AddReview = () => {
   const [ratings,setRatings]=useState(null);
   const [massage,setMassage]=useState("");
    const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
    if (loading) {
      return <Loader></Loader>;
    }
@@ -35,6 +37,7 @@ const handleSubmit = () => {
      .then((data) => {
        console.log(data);
        window.alert("Review added");
+         navigate("/");
      });
 };
 const handleMassage=(e)=>{

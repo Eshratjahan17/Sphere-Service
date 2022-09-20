@@ -1,5 +1,4 @@
 
-import { QueryClient } from "react-query";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Blogs from "./Components/Blogs";
@@ -12,6 +11,7 @@ import ManageProducts from "./Components/Dashboard/ManageProducts";
 import ManageUsers from "./Components/Dashboard/ManageUsers";
 import MyOrders from "./Components/Dashboard/MyOrders";
 import MyProfile from "./Components/Dashboard/MyProfile";
+import Payment from "./Components/Dashboard/Payment";
 import Home from './Components/Home';
 import LogIn from "./Components/LogIn/LogIn";
 import RequireAuth from './Components/LogIn/RequireAuth';
@@ -65,7 +65,9 @@ function App() {
             element={<ManageUsers></ManageUsers>}
           ></Route>
           <Route path="myOrders" element={<MyOrders></MyOrders>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
         </Route>
+        <Route path="/dashboard/myprofile" element={<MyProfile></MyProfile>}></Route>
         <Route path="/purchase/:id" element={<Purchase></Purchase>}></Route>
 
         <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
@@ -74,7 +76,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-     
+
       <Footer></Footer>
     </div>
   );

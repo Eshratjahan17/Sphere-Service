@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Loader from './Shared/Loader';
 
@@ -37,46 +36,45 @@ const [shippingDetails, setshippingDetails] = useState([]);
      console.log(data,errors);
 
      setshippingDetails(data);
-     toast("Please Go to payment page to Confirm order!");
-    //  const order = {
-    //    toolsId: _id,
-    //    name: data.name,
-    //    address: data.address,
-    //    email: user?.email,
-    //    phone: data.phone,
-    //    quantity: data.quantity,
-    //    tools: data.tools,
-    //    price:data.price
-    //  };
+      const order = {
+        toolsId:data?._id,
+        toolsName:data?.productName,
+        address: data?.address,
+        email: user?.email,
+        quantity: data?.quantity,
+        price: data?.price,
+       
+      };
+      console.log(order);
+      fetch("http://localhost:5000/order", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(order),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          if (data.acknowledged) {
+            console.log("To checkOut Please go to Payment Page ");
+           
+          }
+        });
+    
     }
 
-    const handlethumb = (ind) => {
-      setThumbIndex(ind);
-      console.log(ind);
-    };
+    
   return (
-    <div className="bg-base-200">
-      <div className="">
-        <div class="avatar placeholder ml-32  mt-8">
-          <div class="bg-primary text-neutral-content rounded-full w-24 ">
-            <span class="text-xl text-center text-white">
-              {user?.displayName}
-            </span>
-          </div>
-        </div>
-        <p className="ml-32"> {user.email}</p>
-      </div>
-      <div class="hero min-h-screen ">
-        <div class="hero-content flex-col lg:flex-row">
-          <div className="flex flex-col">
-            <div>
-              <img src={picture} class="max-w-sm rounded-lg shadow-2xl" />
-            </div>
-            <div className="flex  justify-center my-2 gap-2"></div>
-          </div>
-
-          <div>
-            <h1 class="text-5xl font-bold ">{name}!</h1>
+    <div className="bg-base-200  lg:flex lg:px-28 lg:py-28 ">
+      <div className="  pl-10  ">
+        <div className="card w-96 bg-white shadow-xl">
+          <figure>
+            <img src={picture} alt="Shoes" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{name}</h2>
             <p class="py-6">
               <p class="">{about}</p>
               <span className="font-bold text-lg">Price:</span>
@@ -101,127 +99,107 @@ const [shippingDetails, setshippingDetails] = useState([]);
           </div>
         </div>
       </div>
-      <h1 class="text-5xl font-bold text-center py-6 ">Place Order here</h1>
 
-      <div className="flex justify-center pb-9">
-        <div class="card grow  w-full max-w-sm shadow-2xl">
-          <div class="card-body">
-            <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto ">
-              <div class="form-control mx-auto">
-                <label class="label">
-                  <span class="label-text">Name</span>
-                </label>
-                <input
-                  type="name"
-                  placeholder="Your Name here"
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("name")}
-                />
-              </div>
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">Phone</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Your phone here"
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("phone")}
-                />
-              </div>
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">email</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="Your email here"
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("email")}
-                />
-              </div>
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">Address</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Your Address here"
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("address")}
-                />
-              </div>
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">Product Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Product here"
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("productName")}
-                />
-              </div>
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">Price</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Price here"
-                  defaultValue={price}
-                  class="input input-bordered w-full max-w-xs"
-                  {...register("price")}
-                />
-              </div>
-              {/* quantity */}
-              <div class="form-control  mx-auto">
-                <label class="label">
-                  <span class="label-text">Quantity</span>
-                </label>
-                <input
-                  name="quantity"
-                  type="number"
-                  class="input input-bordered w-full max-w-xs"
-                  defaultValue={minimum}
-                  placeholder={minimum}
-                  {...register("quantity", {
-                    max: { value: stock, message: "Stock Out" },
-                    min: {
-                      value: minimum,
-                      message: `You Can not order less then ${minimum}`,
-                    },
-                  })}
-                />
-                <label class="label">
-                  {errors.quantity?.type === "max" && (
-                    <span class="label-text-alt text-red-500">
-                      {errors.quantity.message}
-                    </span>
-                  )}
-                  {errors.quantity?.type === "min" && (
-                    <span class="label-text-alt text-red-500">
-                      {errors.quantity.message}
-                    </span>
-                  )}
-                </label>
-              </div>
-              {errors.quantity?.type === "max" ||
-              errors.quantity?.type === "min" ? (
-                <input
-                  type="submit"
-                  value="Go to Checkout"
-                  disabled
-                  className="btn w-1/2 flex justify-center ml-40 mt-7 rounded-full  hover:border-2 hover:bg-transparent hover:text-secondary bg-secondary text-white  "
-                />
-              ) : (
-                <input
-                  type="submit"
-                  value="Go to Checkout"
-                  className="btn w-1/2 flex justify-center ml-40 mt-7 rounded-full  border-none hover:bg-primary  bg-white text-accent  "
-                />
-              )}
-            </form>
+      <div className="lg:pl-20 ">
+        <div className="flex justify-center pb-9 ">
+          <div class="card grow  w-full max-w-sm shadow-2xl">
+            <div class="card-body bg-accent ">
+              <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto ">
+                <div class="form-control mx-auto">
+                  <label class="label">
+                    <span class="label-text text-white text-lg">Name</span>
+                  </label>
+                  <input
+                    type="name"
+                    placeholder="Your Name here"
+                    class="input input-bordered w-full max-w-xs"
+                    {...register("productName")}
+                  />
+                </div>
+                <div class="form-control  mx-auto">
+                  <label class="label">
+                    <span class="label-text text-white text-lg">Email</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Your email here"
+                    class="input input-bordered w-full max-w-xs"
+                    {...register("email")}
+                  />
+                </div>
+                <div class="form-control  mx-auto">
+                  <label class="label">
+                    <span class="label-text text-white text-lg">Address</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your Address here"
+                    class="input input-bordered w-full max-w-xs"
+                    {...register("address")}
+                  />
+                </div>
+
+                <div class="form-control  mx-auto">
+                  <label class="label">
+                    <span class="label-text text-white text-lg">Price</span>
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="Price here"
+                    defaultValue={price}
+                    class="input input-bordered w-full max-w-xs"
+                    {...register("price")}
+                  />
+                </div>
+                {/* quantity */}
+                <div class="form-control  mx-auto">
+                  <label class="label">
+                    <span class="label-text text-white text-lg">Quantity</span>
+                  </label>
+                  <input
+                    name="quantity"
+                    type="number"
+                    class="input input-bordered w-full max-w-xs"
+                    defaultValue={minimum}
+                    placeholder={minimum}
+                    {...register("quantity", {
+                      max: { value: stock, message: "Stock Out" },
+                      min: {
+                        value: minimum,
+                        message: `You Can not order less then ${minimum}`,
+                      },
+                    })}
+                  />
+                  <label class="label">
+                    {errors.quantity?.type === "max" && (
+                      <span class="label-text-alt text-red-500">
+                        {errors.quantity.message}
+                      </span>
+                    )}
+                    {errors.quantity?.type === "min" && (
+                      <span class="label-text-alt text-red-500">
+                        {errors.quantity.message}
+                      </span>
+                    )}
+                  </label>
+                </div>
+                {errors.quantity?.type === "max" ||
+                errors.quantity?.type === "min" ? (
+                  <input
+                    type="submit"
+                    value="Go to Checkout"
+                    disabled
+                    className="btn w-1/2 flex justify-center ml-40 mt-7 rounded-full  hover:border-2 hover:bg-transparent hover:text-secondary bg-secondary text-white  "
+                  />
+                ) : (
+                  <input
+                    type="submit"
+                    value="Go to Checkout"
+                    className="btn w-1/2 flex justify-center ml-40 mt-7 rounded-full  border-none hover:bg-primary  bg-white text-accent  "
+                  />
+                )}
+              </form>
+            </div>
           </div>
         </div>
       </div>

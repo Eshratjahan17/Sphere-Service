@@ -3,6 +3,7 @@ import Review from './Review';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+ 
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
@@ -10,18 +11,23 @@ const Reviews = () => {
         setReviews(data);
       });
   }, [reviews]);
-  return (
-    <div>
-      <h1 className='text-5xl text-center font-bold text-primary'>Customer Reviews</h1>
-      <div class="card w-96 bg-base-100 shadow-xl">
-       {
-        reviews.map((review)=><Review
-        review={review}
-        ></Review>)
-       }
-      </div>
-    </div>
-  );
+  
+    return (
+      <div className="my-5 mx-5">
+        <h1 className="text-5xl text-center font-bold text-primary my-7">
+          Customer Reviews
+        </h1>
+        <div className=" grid grid-cols-1 lg:grid-cols-4 
+        mx-9 
+         lg:gap-3 lg:mx-7  ">
+          
+            {reviews.map((rev) => (
+              <Review rev={rev}></Review>
+            ))}
+          </div>
+        </div>
+      
+    );
 };
 
 export default Reviews;

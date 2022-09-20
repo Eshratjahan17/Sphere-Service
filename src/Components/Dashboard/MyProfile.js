@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
 
 const MyProfile = () => {
+    const [user] = useAuthState(auth);
+    const currentEmail = user.email;
+    console.log(user);
   const {
     register,
     handleSubmit,
@@ -9,42 +14,47 @@ const MyProfile = () => {
     formState: { errors },
   } = useForm();
    const onSubmit = (data) => {
-    //  const email = data.email;
-    //  const name = data.displayName;
-    //  const phone = data.phone;
-    //  const url = data.url;
-    //  const address = data.address;
-    //  const updateUser = { email, name, phone, url, address };
+     const email = data.email;
+     const name = data.displayName;
+     const phone = data.phone;
+     const url = data.url;
+     const address = data.address;
+     const updateUser = { email, name, phone, url, address };
      console.log(data);
-    //  fetch(`https://dry-beyond-73074.herokuapp.com/user/${currentEmail}`, {
-    //    method: "PUT",
-    //    headers: {
-    //      "content-type": "application/json",
-    //      authorization: `Bearer ${localStorage.getItem(`accessToken`)}`,
-    //    },
-    //    body: JSON.stringify(updateUser),
-    //  })
-    //    .then((res) => res.json())
-    //    .then((data) => {
-    //      toast.success("Data updated Succesfully");
-    //      reset({
-    //        displayName: " ",
-    //        phone: " ",
-    //        address: " ",
-    //        email: " ",
-    //        url: " ",
-    //      });
-    //    });
+     fetch(`http://localhost:5000/user/${currentEmail}`, {
+       method: "PUT",
+       headers: {
+         "content-type": "application/json",
+         authorization: `Bearer ${localStorage.getItem(`accessToken`)}`,
+       },
+       body: JSON.stringify(updateUser),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         console.log("Data updated Succesfully");
+         reset({
+           displayName: " ",
+           phone: " ",
+           address: " ",
+           email: " ",
+           url: " ",
+         });
+       });
    };
   return (
-    <div className="bg-white lg:m-24 p-10 lg:flex items-center  
+    <div
+      className="bg-white lg:m-24 p-10 lg:flex items-center  
     shadow-lg
     
-    ">
+    "
+    >
       <div className=" ">
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src="https://placeimg.com/192/192/people" />
+            <img
+              src="https://cdn.icon-icons.com/icons2/1161/PNG/512/1487716857-user_81635.png"
+              alt=""
+            />
           </div>
         </div>
         <h1 className="font-bold text-xl">Eshrat jahan</h1>

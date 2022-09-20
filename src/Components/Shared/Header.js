@@ -151,7 +151,7 @@ const Header = () => {
                   class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a>My Profile</a>
+                    <Link to="/dashboard/myprofile">My Profile</Link>
                   </li>
                   <li>
                     <a onClick={handleSignOut}>Log out</a>
