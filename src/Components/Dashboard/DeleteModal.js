@@ -11,7 +11,7 @@ const DeleteModal = (
   console.log(product);
   useEffect(() => {}, []);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://sphere-service-server.onrender.com/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

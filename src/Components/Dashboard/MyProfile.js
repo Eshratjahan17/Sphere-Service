@@ -21,7 +21,7 @@ const MyProfile = () => {
      const address = data.address;
      const updateUser = { email, name, phone, url, address };
      console.log(data);
-     fetch(`http://localhost:5000/user/${currentEmail}`, {
+     fetch(`https://sphere-service-server.onrender.com/user/${currentEmail}`, {
        method: "PUT",
        headers: {
          "content-type": "application/json",

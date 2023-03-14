@@ -10,7 +10,7 @@ const MyOrders = () => {
   const [deleteOrder, setDeleteOrder] = useState(null);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/myorders?email=${email}`)
+      fetch(`https://sphere-service-server.onrender.com/myorders?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           setMyOrders(data);

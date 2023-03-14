@@ -6,7 +6,7 @@ const ManageProducts = () => {
   const [deleteModal, setDeleteModal] = useState(null);
   const [isLoading,setIsLoading]=useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://sphere-service-server.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -30,7 +30,7 @@ const AddProducts = () => {
       madeIn,
     };
 
-    fetch("http://localhost:5000/addProduct", {
+    fetch("https://sphere-service-server.onrender.com/addProduct", {
       method: "POST",
       body: JSON.stringify(productInfo),
       headers: {

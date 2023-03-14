@@ -21,7 +21,7 @@ const [shippingDetails, setshippingDetails] = useState([]);
  } = useForm({});
  
     useEffect(() => {
-      axios.get(`http://localhost:5000/products/${id}`).then((res) => {
+      axios.get(`https://sphere-service-server.onrender.com/products/${id}`).then((res) => {
         if (isLoading) {
           <Loader></Loader>;
         } else {
@@ -46,7 +46,7 @@ const [shippingDetails, setshippingDetails] = useState([]);
        
       };
       console.log(order);
-      fetch("http://localhost:5000/order", {
+      fetch("https://sphere-service-server.onrender.com/order", {
         method: "POST",
         headers: {
           "content-type": "application/json",

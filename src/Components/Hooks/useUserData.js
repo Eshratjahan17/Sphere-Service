@@ -4,7 +4,7 @@ const useUser = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/user", {
+    fetch("https://sphere-service-server.onrender.com/user", {
       method: "GET",
       headers: {
         "content-type": "application/json",

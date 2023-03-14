@@ -26,7 +26,7 @@ const handleSubmit = () => {
    const userReview = { name, email, review, rating, picture };
 
   console.log(userReview);
-   fetch("http://localhost:5000/addreview", {
+   fetch("https://sphere-service-server.onrender.com/addreview", {
      method: "POST",
      body: JSON.stringify(userReview),
      headers: {

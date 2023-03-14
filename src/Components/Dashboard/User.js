@@ -4,7 +4,7 @@ const User = ({ user }) => {
   const {email,role}=user;
   console.log(user);
  const makeAdmin = () => {
-   fetch(`http://localhost:5000/user/admin/${email}`, {
+   fetch(`https://sphere-service-server.onrender.com/user/admin/${email}`, {
      method: "PUT",
      headers: {
        authorization: `Bearer ${localStorage.getItem("accessToken")}`,

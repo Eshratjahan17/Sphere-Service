@@ -14,7 +14,7 @@ const Payment = () => {
   
   const [orderProduct,setOrderProduct]=useState([]);
    const { id } = useParams();
-   const url = `http://localhost:5000/order/${id}`;
+   const url = `https://sphere-service-server.onrender.com/order/${id}`;
    useEffect(() => {
      fetch(url, {
        method: "GET",

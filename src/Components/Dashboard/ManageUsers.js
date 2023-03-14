@@ -4,7 +4,7 @@ import User from './User';
 const ManageUsers = () => {
   const [users,setUsers]=useState([]);
   useEffect(()=>{
-fetch("http://localhost:5000/user", {
+fetch("https://sphere-service-server.onrender.com/user", {
   method: "GET",
   headers: {
     "content-type": "application/json",

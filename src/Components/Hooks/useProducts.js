@@ -6,7 +6,7 @@ const useProducts = () => {
     const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://sphere-service-server.onrender.com/products")
       .then((res) => {
             const reversed = res.data.reverse().slice(0, 6);
         setTools(reversed);

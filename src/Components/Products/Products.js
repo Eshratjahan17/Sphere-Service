@@ -17,7 +17,7 @@ const Products = () => {
         Our Products
       </h1>
       <div class="divider w-1/4 mx-auto "></div>
-      <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-3 place-content-center pr-2 pl-5 my-5 ">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-3 justify-items-center pr-2 pl-5 my-2  ">
         {tools.map((tool) => (
           <>
             <Product tool={tool}></Product>
